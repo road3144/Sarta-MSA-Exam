@@ -8,12 +8,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@RequiredArgsConstructor
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderProduct {
 
 	@Id
@@ -21,7 +26,7 @@ public class OrderProduct {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "order_id")
+	@JoinColumn(name = "orders_id")
 	private Order order;
 
 	private Long productId;
