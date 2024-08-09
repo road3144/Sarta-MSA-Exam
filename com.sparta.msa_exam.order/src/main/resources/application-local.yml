@@ -7,5 +7,5 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/msa_exam
     username: root
-    password: password
+    password: road3144
     driver-class-name: com.mysql.cj.jdbc.Driver
