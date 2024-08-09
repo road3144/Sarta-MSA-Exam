@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: server
+  profiles:
+    active: local
+
+server:
+  port: 19090
+
+eureka:
+  client:
+    register-with-eureka: false
