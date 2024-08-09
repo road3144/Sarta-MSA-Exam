@@ -11,9 +11,12 @@ import lombok.RequiredArgsConstructor;
 public class ProductService {
 	private final ProductRepository productRepository;
 
-	public ProductResponseDto createProduct(ProductRequestDto productRequestDto) {
-		Product product = Product.builder().build();
-		return ProductResponseDto.from(product);
+	public ProductResponseDto createProduct(ProductRequestDto requestDto) {
+		Product product = Product.builder()
+			.name(requestDto.getProductName())
+			.supplyPrice(requestDto.getProductSupplyPrice())
+			.build();
+		return ProductResponseDto.from(productRepository.save(product));
 	}
 
 	public List<ProductResponseDto> getAllProducts() {
