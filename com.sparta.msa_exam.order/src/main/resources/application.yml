@@ -6,7 +6,7 @@ spring:
     name: order-service
 
   profiles:
-    active: local
+    active: dev
 
   jpa:
     hibernate:

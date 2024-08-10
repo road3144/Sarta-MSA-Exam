@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,7 @@ public class OrderService {
 	}
 
 	@Transactional
+	@Cacheable(cacheNames = "orderCache", key = "args[0]")
 	public OrderResponseDto getOrderById(Long orderId) {
 		return OrderResponseDto.from(
 			orderRepository.findById(orderId)
